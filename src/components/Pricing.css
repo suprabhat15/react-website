@@ -37,7 +37,7 @@
 .pricing__wrapper {
   display: flex;
   flex-direction: column; /*These top 2 are not needed.Just a better practice.*/
-  align-items: start; /*Change it to center to see the effect.*/
+  align-items: flex-start; /*Change it to center to see the effect.*/
   margin: 0 auto;
   padding-top: 30px;
 }
