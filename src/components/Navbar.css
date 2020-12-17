@@ -1,0 +1,162 @@
+.navbar {
+  background: rgb(3, 71, 73); /* #1c2237*/
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  /*align-items: center;*/
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0; /* used for moving the navbar up and down */
+  z-index: 999; /* use for transparency kind of thing*/
+}
+
+.navbar-container {
+  align-items: center; /*added it from navbar-logo*/
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.container {
+  z-index: 1;
+  width: 100%; /*Always keep it 100% means taking full use of any size. If width = 80% and max-width = 1600px then space content size =[( 80*(1600) ) / 100 ] = 1280 px; */
+  max-width: 1500px; /* space taken by the content in a component.*/
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.navbar-logo {
+  color: #fff;
+  /* justify-self: start;*/
+  cursor: pointer; /*whenever u hover convert the arrow into pointer.*/
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+}
+
+.navbar-icon {
+  margin-right: 0.5rem;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  text-align: center;
+  justify-content: end;
+}
+
+.nav-item {
+  height: 80px; /*If height is not 80px then "border bottom" which is red will appear 1. above if height is < 80px 2. bottom if > 80px. */
+  border-bottom: 7px transparent; /* Use px more than 4px to show hovering effect.*/
+}
+
+.nav-item:hover {
+  border-bottom: 2px solid #f00946; /*2px shows the width of red color*/
+}
+
+.nav-links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none; /*Used to remove the underline which occurs below home, services and products.*/
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.fa-bars {
+  color: #fff;
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  .NavbarItems {
+    position: relative;
+  } /*dt.*/
+
+  /*here nav-menu is used when the user is using in mobile format*/
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /*If it's not present then width will be similar to codeforces mobile view contest list. */
+    height: 90vh;
+    position: absolute; /*if not used then everything gets invisible*/
+    top: 80px; /*decides how low should it be placed from top. Take values 50,540,100 to get clarity*/
+    left: -100%; /*-100% means when nav-menu is rendered, it will go towards left leaving the screen.left=+100% means it will move to right leaving the screen.*/
+    /*Keep left = -50% and u'll get clarity of using "left". */
+    opacity: 1; /*Not required just as practice*/
+    transition: all 0.6s ease;
+  }
+
+  .nav-menu.active {
+    background: #1c2237;
+    left: 0; /*as soon as nav-menu active is rendered it must leave the left position.So, left = 0.*/
+    opacity: 1;
+    transition: all 0.6s ease;
+    z-index: 1;
+  }
+  /*done so far*/
+
+  .nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table; /*to keep everything in center.Remove it to see the effect. */
+  }
+
+  .nav-links:hover {
+    color: #f00946;
+    transform: scale(1.2); /*to magnify the word on hovering*/
+    transition: all 0.3s ease; /*to provide smooth in animation. Change the value of transition-duration to see the effect.;*/
+  }
+
+  .nav-item:hover {
+    border: none;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  /*Below code is written for the animation of LAVISH and logo.*/
+  .navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+
+  .menu-icon {
+    display: block; /*display will remain none when max width is >960*/
+    position: absolute; /*Change it to see the effect. Btw, absolute makes more sense than other position values.*/
+    top: 0; /*margin-top: -40px; These both values are same here.*/
+    right: 0; /*Below two lines are the same as right:0;*/
+    /*left: 100%;
+    padding-right: 30px;*/
+    transform: translate(
+      -100%,
+      60%
+    ); /*Almost having the similar effect as padding: 20px;*/
+    font-size: 1.8rem; /*1.8rem== 30px*/
+    cursor: pointer;
+  }
+
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  .nav-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center; /*These top 3 lines are not needed but for practice.*/
+    width: 100%;
+    height: 120px;
+  }
+}
